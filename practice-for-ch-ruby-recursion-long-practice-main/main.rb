@@ -76,26 +76,25 @@ end
 def merge_sort(arr)
     return [] if arr.length == 0
     return arr if arr.length == 1
-    merge_sort(arr[0...arr.length])
-    merge_sort(arr[arr.length..-1])
-    
+    arr2 = arr[0...arr.length/2]
+    arr1 = arr[arr.length/2..-1]
+    merge(merge_sort(arr1), merge_sort(arr2))
 end
 
 def merge(arr1, arr2)
     new_arr = []
-    arr1.each.with_index do |ele, idx|
-        arr2.each.with_index do |ele2, idx2|
-            if ele > ele2
-
-            end
-        end
+    while !arr1.empty? && !arr2.empty?
+        arr1
     end
+    new_arr
 end
 
-p bsearch([1, 2, 3], 1) # => 0
-p bsearch([2, 3, 4, 5], 3) # => 1
-p bsearch([2, 4, 6, 8, 10], 6) # => 2
-p bsearch([1, 3, 4, 5, 9], 5) # => 3
-p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
-p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
-p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
+p merge([1, 3, 4, 2, 5, 6])
+
+# p bsearch([1, 2, 3], 1) # => 0
+# p bsearch([2, 3, 4, 5], 3) # => 1
+# p bsearch([2, 4, 6, 8, 10], 6) # => 2
+# p bsearch([1, 3, 4, 5, 9], 5) # => 3
+# p bsearch([1, 2, 3, 4, 5, 6], 6) # => 5
+# p bsearch([1, 2, 3, 4, 5, 6], 0) # => nil
+# p bsearch([1, 2, 3, 4, 5, 7], 6) # => nil
